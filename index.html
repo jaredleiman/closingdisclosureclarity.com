@@ -1,944 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Closing Disclosure Clarity | AI-Powered Line-by-Line Analysis Before You Sign</title>
-  <meta name="description" content="You have 3 business days to review your Closing Disclosure. Upload it now and get a plain-English analysis flagging junk fees, TRID violations, and discrepancies vs. your Loan Estimate — before you sign." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink: #0E1117;
-      --ink-soft: #2B2F3A;
-      --ink-muted: #5C6070;
-      --cream: #FAF8F3;
-      --cream-warm: #F3EFE4;
-      --gold: #B8963E;
-      --gold-light: #D4AF6A;
-      --gold-pale: #F0E4C4;
-      --navy: #0F1E36;
-      --navy-mid: #1A3150;
-      --red-flag: #C0392B;
-      --green-ok: #1E6B45;
-      --border: rgba(184,150,62,0.25);
-      --border-light: rgba(184,150,62,0.12);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 20px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(250,248,243,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-light);
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--ink);
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--gold); }
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--navy);
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 22px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: 1px solid transparent;
-      transition: all 0.2s;
-    }
-    .nav-cta:hover { background: var(--navy-mid); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 120px 40px 80px;
-      gap: 60px;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-    .hero-left { max-width: 620px; }
-
-    .countdown-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #FFF4F4;
-      border: 1px solid #E8C4C0;
-      color: var(--red-flag);
-      padding: 6px 14px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-    .countdown-badge::before {
-      content: '';
-      width: 7px; height: 7px;
-      background: var(--red-flag);
-      border-radius: 50%;
-      animation: pulse 1.4s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
-    }
-
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.6rem, 4.5vw, 3.8rem);
-      font-weight: 600;
-      line-height: 1.1;
-      color: var(--ink);
-      margin-bottom: 24px;
-      letter-spacing: -0.01em;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .hero-sub {
-      font-size: 1.05rem;
-      color: var(--ink-soft);
-      line-height: 1.7;
-      margin-bottom: 36px;
-      font-weight: 300;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 40px;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--navy);
-      color: #fff;
-      padding: 18px 36px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-      width: fit-content;
-    }
-    .btn-primary:hover { background: var(--navy-mid); transform: translateY(-1px); }
-    .btn-primary .price-badge {
-      background: var(--gold);
-      color: var(--ink);
-      padding: 3px 10px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      margin-left: 4px;
-    }
-
-    .trust-line {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-      letter-spacing: 0.02em;
-    }
-    .trust-line .sep { color: var(--border); }
-
-    /* ── HERO RIGHT ── */
-    .hero-right { position: relative; }
-    .cd-mockup {
-      background: #fff;
-      border: 1px solid var(--border);
-      box-shadow: 0 30px 80px rgba(15,30,54,0.12), 0 4px 20px rgba(15,30,54,0.06);
-      padding: 0;
-      overflow: hidden;
-      transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
-      transition: transform 0.4s;
-    }
-    .cd-mockup:hover { transform: perspective(1200px) rotateY(-1deg) rotateX(1deg); }
-    .mockup-header {
-      background: var(--navy);
-      color: #fff;
-      padding: 14px 20px;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .mockup-header span { color: var(--gold-light); }
-    .mockup-body { padding: 20px; }
-    .mockup-section {
-      margin-bottom: 16px;
-    }
-    .mockup-section-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 8px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--cream-warm);
-    }
-    .fee-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 10px;
-      margin-bottom: 4px;
-      font-size: 0.8rem;
-      border-left: 3px solid transparent;
-    }
-    .fee-row.ok { background: #F0FBF5; border-color: var(--green-ok); }
-    .fee-row.flag { background: #FEF5F4; border-color: var(--red-flag); }
-    .fee-row.warn { background: #FFFBF0; border-color: #D4A017; }
-    .fee-name { color: var(--ink-soft); font-weight: 400; }
-    .fee-amount { font-weight: 600; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; }
-    .fee-row.flag .fee-amount { color: var(--red-flag); }
-    .fee-row.ok .fee-amount { color: var(--green-ok); }
-    .fee-tag {
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 2px 7px;
-      border-radius: 2px;
-      font-weight: 600;
-    }
-    .tag-ok { background: #D4F0E2; color: var(--green-ok); }
-    .tag-flag { background: #FADDDA; color: var(--red-flag); }
-    .tag-review { background: #FEF0C4; color: #8A6500; }
-    .mockup-summary {
-      background: var(--cream-warm);
-      border: 1px solid var(--border);
-      padding: 12px 14px;
-      margin-top: 12px;
-    }
-    .mockup-summary-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 6px;
-    }
-    .mockup-summary-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--red-flag);
-    }
-    .mockup-summary-note {
-      font-size: 0.72rem;
-      color: var(--ink-muted);
-      margin-top: 4px;
-    }
-
-    /* ── URGENCY STRIP ── */
-    .urgency-strip {
-      background: var(--navy);
-      color: #fff;
-      padding: 16px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-    }
-    .urgency-strip strong { color: var(--gold-light); }
-    .urgency-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.2); }
-
-    /* ── WHAT WE ANALYZE ── */
-    .section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 90px 40px;
-    }
-    .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 600;
-      line-height: 1.15;
-      color: var(--ink);
-      margin-bottom: 18px;
-    }
-    .section-sub {
-      font-size: 1rem;
-      color: var(--ink-soft);
-      max-width: 560px;
-      line-height: 1.7;
-      font-weight: 300;
-      margin-bottom: 52px;
-    }
-
-    /* Analysis grid */
-    .analysis-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .analysis-card {
-      background: var(--cream);
-      padding: 32px 28px;
-      position: relative;
-      overflow: hidden;
-    }
-    .analysis-card::before {
-      content: attr(data-num);
-      position: absolute;
-      top: -10px; right: 16px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 5rem;
-      font-weight: 700;
-      color: var(--gold-pale);
-      line-height: 1;
-      pointer-events: none;
-    }
-    .analysis-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-    .analysis-card p {
-      font-size: 0.85rem;
-      color: var(--ink-muted);
-      line-height: 1.65;
-    }
-    .card-icon {
-      font-size: 1.4rem;
-      margin-bottom: 14px;
-    }
-
-    /* ── HOW IT WORKS ── */
-    .how-section {
-      background: var(--navy);
-      padding: 90px 40px;
-      color: #fff;
-    }
-    .how-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .how-section .section-label { color: var(--gold-light); }
-    .how-section .section-title { color: #fff; margin-bottom: 52px; }
-
-    .steps-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      position: relative;
-    }
-    .steps-row::before {
-      content: '';
-      position: absolute;
-      top: 28px; left: calc(12.5% + 28px); right: calc(12.5% + 28px);
-      height: 1px;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
-      opacity: 0.4;
-    }
-    .step {
-      text-align: center;
-      padding: 0 24px;
-    }
-    .step-num {
-      width: 56px; height: 56px;
-      border: 1px solid rgba(184,150,62,0.5);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--gold-light);
-      margin: 0 auto 20px;
-      background: rgba(184,150,62,0.06);
-      position: relative;
-      z-index: 1;
-    }
-    .step h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-    .step p {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.65;
-    }
-
-    /* ── WHAT'S IN YOUR REPORT ── */
-    .report-section {
-      background: var(--cream-warm);
-      padding: 90px 40px;
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-    }
-    .report-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .report-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .report-list li {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 16px 18px;
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-left: 3px solid var(--gold);
-    }
-    .report-list .item-icon {
-      font-size: 1.1rem;
-      margin-top: 1px;
-      flex-shrink: 0;
-    }
-    .report-list .item-text strong {
-      display: block;
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 4px;
-    }
-    .report-list .item-text span {
-      font-size: 0.8rem;
-      color: var(--ink-muted);
-      line-height: 1.55;
-    }
-
-    /* Sample report card */
-    .sample-report {
-      background: #fff;
-      border: 1px solid var(--border);
-      box-shadow: 0 20px 60px rgba(15,30,54,0.09);
-    }
-    .sample-header {
-      background: var(--navy);
-      color: #fff;
-      padding: 16px 22px;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .sample-header .report-badge {
-      background: var(--gold);
-      color: var(--ink);
-      padding: 3px 10px;
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-    }
-    .sample-body { padding: 20px; }
-    .sample-finding {
-      border-left: 3px solid transparent;
-      padding: 12px 14px;
-      margin-bottom: 10px;
-      font-size: 0.8rem;
-    }
-    .finding-red { background: #FEF5F4; border-color: var(--red-flag); }
-    .finding-yellow { background: #FFFDF0; border-color: #D4A017; }
-    .finding-green { background: #F0FBF5; border-color: var(--green-ok); }
-    .finding-label {
-      font-size: 0.63rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-    .label-red { color: var(--red-flag); }
-    .label-yellow { color: #8A6500; }
-    .label-green { color: var(--green-ok); }
-    .finding-text { color: var(--ink-soft); line-height: 1.55; }
-    .finding-amount {
-      display: inline-block;
-      margin-top: 6px;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
-      font-size: 1rem;
-    }
-
-    /* ── PRICING ── */
-    .pricing-section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 90px 40px;
-      text-align: center;
-    }
-    .pricing-card {
-      background: var(--navy);
-      color: #fff;
-      padding: 56px 48px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(184,150,62,0.3);
-    }
-    .pricing-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
-    }
-    .pricing-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 16px;
-    }
-    .pricing-amount {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4.5rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .pricing-amount sup {
-      font-size: 2rem;
-      vertical-align: top;
-      margin-top: 14px;
-      margin-right: 4px;
-      color: var(--gold-light);
-    }
-    .pricing-note {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 32px;
-    }
-    .pricing-includes {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 24px;
-      margin: 32px 0 40px;
-      text-align: left;
-    }
-    .pricing-include {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      font-size: 0.83rem;
-      color: rgba(255,255,255,0.75);
-    }
-    .pricing-include::before {
-      content: '✓';
-      color: var(--gold-light);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .btn-gold {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--gold);
-      color: var(--ink);
-      padding: 18px 48px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-      width: 100%;
-    }
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
-    .pricing-footer {
-      margin-top: 20px;
-      font-size: 0.76rem;
-      color: rgba(255,255,255,0.4);
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-    }
-
-    /* ── FAQ ── */
-    .faq-section {
-      background: var(--cream-warm);
-      border-top: 1px solid var(--border-light);
-      padding: 90px 40px;
-    }
-    .faq-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 24px 0;
-    }
-    .faq-item:first-of-type { border-top: 1px solid var(--border); }
-    .faq-q {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-    .faq-a {
-      font-size: 0.88rem;
-      color: var(--ink-soft);
-      line-height: 1.7;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      color: rgba(255,255,255,0.45);
-      padding: 48px 40px 32px;
-    }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 20px;
-    }
-    .footer-logo span { color: var(--gold); }
-    .footer-disclaimer {
-      font-size: 0.75rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.35);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 20px;
-      margin-top: 20px;
-      max-width: 820px;
-    }
-    .footer-bottom {
-      margin-top: 24px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.25);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 960px) {
-      .hero { grid-template-columns: 1fr; padding-top: 100px; }
-      .hero-right { display: none; }
-      .analysis-grid { grid-template-columns: 1fr 1fr; }
-      .steps-row { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .steps-row::before { display: none; }
-      .report-inner { grid-template-columns: 1fr; }
-      .urgency-strip { flex-direction: column; gap: 8px; text-align: center; }
-      .urgency-sep { display: none; }
-      nav { padding: 16px 20px; }
-    }
-    @media (max-width: 640px) {
-      .analysis-grid { grid-template-columns: 1fr; }
-      .pricing-includes { grid-template-columns: 1fr; }
-      .hero { padding: 100px 20px 60px; }
-      .section, .report-section, .faq-section { padding: 60px 20px; }
-      .how-section { padding: 60px 20px; }
-      .pricing-section { padding: 60px 20px; }
-      .pricing-card { padding: 40px 28px; }
-      footer { padding: 40px 20px 24px; }
-    }
-  </style>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Closing Disclosure Clarity | AI-Powered Analysis Before You Sign</title>
+<meta name="description" content="Upload your Closing Disclosure and receive a plain-English, line-by-line analysis flagging junk fees, TRID discrepancies, and inflated charges before you sign."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-error-container":"#93000a","tertiary-fixed-dim":"#dec391","error-container":"#ffdad6","surface-container-lowest":"#ffffff","on-primary-container":"#80bea6","error":"#ba1a1a","surface-container-high":"#eae8e4","on-surface-variant":"#404944","on-surface":"#1b1c1a","surface-container-highest":"#e4e2de","surface-container":"#efeeea","on-tertiary-fixed":"#261900","tertiary-fixed":"#fcdfaa","primary-fixed":"#b0f0d6","surface":"#fbf9f5","tertiary":"#3c2c06","outline-variant":"#bfc9c3","primary":"#003527","on-primary-fixed-variant":"#0b513d","on-primary":"#ffffff","background":"#fbf9f5","primary-container":"#064e3b","surface-container-low":"#f5f3ef","on-primary-fixed":"#002117"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},fontFamily:{"headline":["Noto Serif"],"body":["Inter"],"label":["Inter"]}}}}</script>
+<style>.material-symbols-outlined{font-variation-settings:"FILL" 0,"wght" 300,"GRAD" 0,"opsz" 24}.editorial-shadow{box-shadow:0 10px 40px -10px rgba(27,28,26,0.04)}.cta-gradient{background:linear-gradient(135deg,#003527 0%,#064e3b 100%)}</style>
 </head>
-<body>
+<body class="bg-surface text-on-surface font-body">
 
-<!-- NAV -->
-<nav>
-  <a href="/" class="nav-logo">Closing Disclosure <span>Clarity</span></a>
-  <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="nav-cta">Analyze My Disclosure →</a>
-</nav>
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-[#fbf9f5]/80 backdrop-blur-md shadow-sm shadow-black/5">
+  <a href="/" class="font-headline italic font-bold text-2xl text-primary">Clarity</a>
+  <nav class="hidden md:flex items-center space-x-10">
+    <a href="#how-it-works" class="text-on-surface-variant font-label uppercase tracking-widest text-xs hover:text-primary transition-colors">How It Works</a>
+    <a href="#what-we-check" class="text-on-surface-variant font-label uppercase tracking-widest text-xs hover:text-primary transition-colors">What We Check</a>
+    <a href="/blog/" class="text-on-surface-variant font-label uppercase tracking-widest text-xs hover:text-primary transition-colors">Guides</a>
+  </nav>
+  <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="cta-gradient text-on-primary px-6 py-2.5 text-sm font-medium tracking-wide rounded-sm hover:opacity-90 transition-opacity">Analyze My Disclosure</a>
+</header>
 
-<!-- HERO -->
-<section style="background: var(--cream); border-bottom: 1px solid var(--border-light);">
-  <div class="hero">
-    <div class="hero-left">
-      <div class="countdown-badge">You have 3 business days to review</div>
-      <h1>Every fee on your<br/>Closing Disclosure<br/><em>decoded before you sign.</em></h1>
-      <p class="hero-sub">Upload your federally standardized Closing Disclosure and receive a plain-English, line-by-line analysis flagging junk fees, TRID discrepancies, inflated title charges, and anything that doesn't match your original Loan Estimate.</p>
-      <div class="hero-actions">
-        <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="btn-primary">
-          Get My Analysis <span class="price-badge">$197</span>
-        </a>
-      </div>
-      <div class="trust-line">
-        <span>One-time payment</span>
-        <span class="sep">|</span>
-        <span>Results in minutes</span>
-        <span class="sep">|</span>
-        <span>No subscription</span>
+<main class="pt-24">
+
+<section class="relative min-h-[921px] flex items-center px-6 md:px-12 bg-surface">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
+    <div class="lg:col-span-7 space-y-8">
+      <div class="inline-block px-3 py-1 bg-surface-container-high text-primary font-label text-[10px] uppercase tracking-[0.2em] font-bold">Federal TRID Compliance Analysis</div>
+      <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl leading-[1.1] text-primary tracking-tight">Every fee on your Closing Disclosure <span class="italic font-normal">decoded</span> before you sign.</h1>
+      <p class="text-on-surface-variant text-lg md:text-xl max-w-xl font-light leading-relaxed">Upload your federally standardized Closing Disclosure and receive a plain-English, line-by-line analysis flagging junk fees, TRID discrepancies, inflated title charges, and anything that doesn't match your Loan Estimate.</p>
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
+        <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="cta-gradient text-on-primary px-10 py-5 text-lg font-medium rounded-sm shadow-xl shadow-primary/10 hover:opacity-90 transition-all">Get My Analysis — $197</a>
+        <div class="flex flex-col"><span class="text-tertiary-fixed-dim font-headline italic text-2xl">One-time · $197</span><span class="text-[10px] uppercase tracking-widest text-stone-500">No subscription. Results in minutes.</span></div>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="cd-mockup">
-        <div class="mockup-header">
-          <span>Closing Disclosure Analysis</span>
-          <span>3 issues flagged</span>
+    <div class="lg:col-span-5 relative">
+      <div class="aspect-[4/5] bg-surface-container-highest rounded-sm overflow-hidden relative editorial-shadow border border-outline-variant/10 p-8 flex flex-col">
+        <div class="flex justify-between items-center border-b border-outline-variant/20 pb-6 mb-6">
+          <div><p class="font-headline text-xl text-primary">Analysis Report</p><p class="text-[10px] uppercase tracking-widest text-stone-400 mt-1">3 issues flagged</p></div>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-error-container text-on-error-container px-3 py-1">Action Required</span>
         </div>
-        <div class="mockup-body">
-          <div class="mockup-section">
-            <div class="mockup-section-label">Section A — Origination Charges</div>
-            <div class="fee-row ok">
-              <span class="fee-name">Origination fee (1%)</span>
-              <div style="display:flex;align-items:center;gap:8px;">
-                <span class="fee-amount">$4,800</span>
-                <span class="fee-tag tag-ok">Within tolerance</span>
-              </div>
-            </div>
-            <div class="fee-row flag">
-              <span class="fee-name">Underwriting fee</span>
-              <div style="display:flex;align-items:center;gap:8px;">
-                <span class="fee-amount">$1,295</span>
-                <span class="fee-tag tag-flag">↑ $450 vs LE</span>
-              </div>
-            </div>
-            <div class="fee-row warn">
-              <span class="fee-name">Processing fee</span>
-              <div style="display:flex;align-items:center;gap:8px;">
-                <span class="fee-amount">$795</span>
-                <span class="fee-tag tag-review">Review</span>
-              </div>
-            </div>
-          </div>
-          <div class="mockup-section">
-            <div class="mockup-section-label">Section B — Title Services</div>
-            <div class="fee-row ok">
-              <span class="fee-name">Title search</span>
-              <div style="display:flex;align-items:center;gap:8px;">
-                <span class="fee-amount">$350</span>
-                <span class="fee-tag tag-ok">Market rate</span>
-              </div>
-            </div>
-            <div class="fee-row flag">
-              <span class="fee-name">Owner's title insurance</span>
-              <div style="display:flex;align-items:center;gap:8px;">
-                <span class="fee-amount">$2,450</span>
-                <span class="fee-tag tag-flag">Above typical</span>
-              </div>
-            </div>
-          </div>
-          <div class="mockup-summary">
-            <div class="mockup-summary-label">Potential overcharges identified</div>
-            <div class="mockup-summary-value">$1,700 – $2,400</div>
-            <div class="mockup-summary-note">2 fees exceed TRID tolerance thresholds. Review recommended before signing.</div>
-          </div>
+        <div class="space-y-6 flex-1">
+          <div class="flex justify-between items-start"><div><p class="font-headline text-base text-primary">Underwriting Fee</p><p class="text-xs text-on-surface-variant font-light mt-1">↑ $450 vs. Loan Estimate</p></div><div class="text-right"><p class="font-headline text-lg">$1,295</p><span class="text-[9px] font-bold uppercase tracking-widest bg-error-container text-on-error-container px-2 py-0.5">Junk Fee</span></div></div>
+          <div class="flex justify-between items-start"><div><p class="font-headline text-base text-primary">Owner's Title Insurance</p><p class="text-xs text-on-surface-variant font-light mt-1">Above typical state rate</p></div><div class="text-right"><p class="font-headline text-lg">$2,450</p><span class="text-[9px] font-bold uppercase tracking-widest bg-[#FEF0C4] text-[#8A6500] px-2 py-0.5">Review</span></div></div>
+          <div class="flex justify-between items-start"><div><p class="font-headline text-base text-primary">Appraisal Fee</p><p class="text-xs text-on-surface-variant font-light mt-1">Matches Loan Estimate exactly</p></div><div class="text-right"><p class="font-headline text-lg">$550</p><span class="text-[9px] font-bold uppercase tracking-widest bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5">Verified</span></div></div>
         </div>
+        <div class="mt-6 pt-6 border-t border-outline-variant/20"><p class="text-sm italic font-headline text-stone-500">Potential overcharges: <span class="text-primary font-bold not-italic">$1,700–$2,400</span></p></div>
+      </div>
+      <div class="absolute -bottom-8 -left-12 hidden md:block bg-surface-container-lowest p-8 border border-outline-variant/20 editorial-shadow max-w-[280px]">
+        <p class="font-headline italic text-primary text-xl">"Trust, but verify."</p>
+        <p class="text-[10px] uppercase tracking-widest text-stone-400 mt-4">Federal law gives you 3 days to review</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- URGENCY STRIP -->
-<div class="urgency-strip">
-  <span>🏠 <strong>4.7 million</strong> home closings happen every year in the US</span>
-  <span class="urgency-sep"></span>
-  <span>⏱ Federal law gives you <strong>3 business days</strong> to review your Closing Disclosure</span>
-  <span class="urgency-sep"></span>
-  <span>📋 The average closing has <strong>40–60 individual line items</strong></span>
-</div>
-
-<!-- WHAT WE ANALYZE -->
-<section class="section">
-  <p class="section-label">What we check</p>
-  <h2 class="section-title">Eight categories of fees.<br/>Every one examined.</h2>
-  <p class="section-sub">Your Closing Disclosure is a federally standardized 5-page form — but knowing which numbers matter and which tolerances apply requires deep familiarity with TRID rules.</p>
-  <div class="analysis-grid">
-    <div class="analysis-card" data-num="01">
-      <div class="card-icon">🏦</div>
-      <h3>Origination &amp; Lender Fees</h3>
-      <p>Underwriting, processing, and application fees cross-checked against your Loan Estimate for TRID tolerance compliance.</p>
-    </div>
-    <div class="analysis-card" data-num="02">
-      <div class="card-icon">📋</div>
-      <h3>TRID Tolerance Violations</h3>
-      <p>Some fees can't increase at all. Others can increase up to 10%. We flag everything that moved outside federal limits.</p>
-    </div>
-    <div class="analysis-card" data-num="03">
-      <div class="card-icon">🔍</div>
-      <h3>Title Insurance &amp; Settlement</h3>
-      <p>Title search, title insurance, settlement agent fees, and notary charges analyzed against typical market rates for your state.</p>
-    </div>
-    <div class="analysis-card" data-num="04">
-      <div class="card-icon">💰</div>
-      <h3>Junk Fee Detection</h3>
-      <p>Administrative fees, document prep fees, courier fees, and other charges with no clear service behind them — identified and explained.</p>
-    </div>
-    <div class="analysis-card" data-num="05">
-      <div class="card-icon">📅</div>
-      <h3>Prepaids &amp; Escrow</h3>
-      <p>Prepaid interest, homeowner's insurance, and property tax escrow calculations verified for accuracy and reasonableness.</p>
-    </div>
-    <div class="analysis-card" data-num="06">
-      <div class="card-icon">🏡</div>
-      <h3>Property Tax Prorations</h3>
-      <p>Closing day proration math verified against your closing date. Incorrect prorations can mean hundreds of dollars leaving your pocket.</p>
-    </div>
-    <div class="analysis-card" data-num="07">
-      <div class="card-icon">🎁</div>
-      <h3>Lender Credits Not Applied</h3>
-      <p>If you were promised lender credits on your Loan Estimate, we verify they appear correctly on your Closing Disclosure.</p>
-    </div>
-    <div class="analysis-card" data-num="08">
-      <div class="card-icon">⚖️</div>
-      <h3>Cash-to-Close Verification</h3>
-      <p>Your final cash-to-close traced back line-by-line. Unexplained increases from your Loan Estimate flagged for immediate review.</p>
-    </div>
+<section class="bg-surface-container-low border-y border-outline-variant/10 py-10 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    <div><p class="font-headline text-4xl text-primary">4.7M</p><p class="text-[11px] uppercase tracking-widest text-on-surface-variant mt-1">Home closings per year in the US</p></div>
+    <div><p class="font-headline text-4xl text-primary">3 days</p><p class="text-[11px] uppercase tracking-widest text-on-surface-variant mt-1">Federal law mandates this review window</p></div>
+    <div><p class="font-headline text-4xl text-primary">40–60</p><p class="text-[11px] uppercase tracking-widest text-on-surface-variant mt-1">Line items on the average closing</p></div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how-section">
-  <div class="how-inner">
-    <p class="section-label">How it works</p>
-    <h2 class="section-title" style="max-width:560px;">From upload to answers<br/>in minutes.</h2>
-    <div class="steps-row">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Pay &amp; Upload</h3>
-        <p>Complete your $197 payment and upload your Closing Disclosure PDF on the secure intake form.</p>
+<section id="what-we-check" class="py-32 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
+      <div class="lg:col-span-4 lg:sticky lg:top-32">
+        <h2 class="font-headline text-4xl text-primary mb-6">Eight categories of fees. Every one examined.</h2>
+        <p class="text-on-surface-variant leading-relaxed font-light mb-8">Your Closing Disclosure is a federally standardized 5-page form — but knowing which tolerances apply requires deep familiarity with TRID rules.</p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base mt-0.5" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm font-medium uppercase tracking-wider text-on-surface">LE vs CD Discrepancy Check</span></li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base mt-0.5" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm font-medium uppercase tracking-wider text-on-surface">Compliance Violation Alerts</span></li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base mt-0.5" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm font-medium uppercase tracking-wider text-on-surface">Lender Talking-Point Script</span></li>
+        </ul>
+        <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="cta-gradient text-on-primary px-8 py-4 text-sm font-medium rounded-sm inline-block hover:opacity-90 transition-opacity">Get My Analysis — $197</a>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>AI Analysis</h3>
-        <p>Our system applies federal TRID rules and current market data to every line of your document.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Report Delivered</h3>
-        <p>A plain-English HTML report lands in your inbox — flagged fees highlighted, explanations included.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>You Decide</h3>
-        <p>Armed with a clear picture, you can challenge fees with your lender or proceed confidently to closing.</p>
+      <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-px bg-outline-variant/10">
+        <div class="bg-surface-container-lowest p-8 editorial-shadow"><span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl mb-4 block">account_balance</span><h3 class="font-headline text-xl text-primary mb-2">Origination &amp; Lender Fees</h3><p class="text-sm text-on-surface-variant font-light leading-relaxed">Underwriting, processing, and application fees cross-checked against your Loan Estimate for TRID tolerance compliance.</p></div>
+        <div class="bg-surface-container-lowest p-8 editorial-shadow"><span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl mb-4 block">gavel</span><h3 class="font-headline text-xl text-primary mb-2">TRID Tolerance Violations</h3><p class="text-sm text-on-surface-variant font-light leading-relaxed">Some fees can't increase at all. Others can increase up to 10%. We flag everything that moved outside federal limits.</p></div>
+        <div class="bg-surface-container-lowest p-8 editorial-shadow"><span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl mb-4 block">search</span><h3 class="font-headline text-xl text-primary mb-2">Title Insurance &amp; Settlement</h3><p class="text-sm text-on-surface-variant font-light leading-relaxed">Title search, title insurance, and settlement agent fees analyzed against typical market rates for your state.</p></div>
+        <div class="bg-surface-container-lowest p-8 editorial-shadow"><span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl mb-4 block">money_off</span><h3 class="font-headline text-xl text-primary mb-2">Junk Fee Detection</h3><p class="text-sm text-on-surface-variant font-light leading-relaxed">Administrative fees, document prep fees, courier fees, and other charges with no clear service — identified and explained.</p></div>
+        <div class="bg-surface-container-lowest p-8 editorial-shadow"><span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl mb-4 block">calendar_today</span><h3 class="font-headline text-xl text-primary mb-2">Prepaids &amp; Escrow</h3><p class="text-sm text-on-surface-variant font-light leading-relaxed">Prepaid interest, homeowner's insurance, and property tax escrow calculations verified for accuracy.</p></div>
+        <div class="bg-surface-container-lowest p-8 editorial-shadow"><span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl mb-4 block">home</span><h3 class="font-headline text-xl text-primary mb-2">Property Tax Prorations</h3><p class="text-sm text-on-surface-variant font-light leading-relaxed">Closing day proration math verified against your closing date. Errors here can cost hundreds of dollars.</p></div>
+        <div class="bg-surface-container-lowest p-8 editorial-shadow"><span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl mb-4 block">redeem</span><h3 class="font-headline text-xl text-primary mb-2">Lender Credits</h3><p class="text-sm text-on-surface-variant font-light leading-relaxed">If you were promised lender credits on your Loan Estimate, we verify they appear correctly on your Closing Disclosure.</p></div>
+        <div class="bg-surface-container-lowest p-8 editorial-shadow"><span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl mb-4 block">balance</span><h3 class="font-headline text-xl text-primary mb-2">Cash-to-Close Verification</h3><p class="text-sm text-on-surface-variant font-light leading-relaxed">Your final cash-to-close traced back line-by-line. Unexplained increases from your Loan Estimate flagged.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHAT'S IN YOUR REPORT -->
-<section class="report-section">
-  <div class="report-inner">
-    <div>
-      <p class="section-label">Your report includes</p>
-      <h2 class="section-title">Everything you need before you sign.</h2>
-      <p class="section-sub">A complete analysis of your Closing Disclosure with plain-English explanations for every flagged item.</p>
-      <ul class="report-list">
-        <li>
-          <span class="item-icon">🚩</span>
-          <div class="item-text">
-            <strong>Fee-by-fee classification</strong>
-            <span>Every charge labeled OK, Flagged, or Review — with a plain-English explanation of why.</span>
+<section class="py-32 bg-surface">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
+      <div class="lg:col-span-4 lg:sticky lg:top-32">
+        <h2 class="font-headline text-4xl text-primary mb-6">The Forensic Report</h2>
+        <p class="text-on-surface-variant leading-relaxed font-light mb-8">We don't just scan — we cross-reference every line against federal TRID rules and flag precisely where you may be overpaying.</p>
+        <ul class="space-y-6">
+          <li class="flex items-start gap-4"><span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm font-medium uppercase tracking-wider text-on-surface">LE vs CD Discrepancy Check</span></li>
+          <li class="flex items-start gap-4"><span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm font-medium uppercase tracking-wider text-on-surface">TRID Tolerance Violation Alerts</span></li>
+          <li class="flex items-start gap-4"><span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm font-medium uppercase tracking-wider text-on-surface">Priority Action Scorecard</span></li>
+        </ul>
+      </div>
+      <div class="lg:col-span-8">
+        <div class="bg-surface-container-lowest p-8 md:p-16 border border-outline-variant/10 editorial-shadow">
+          <div class="flex justify-between items-end border-b border-outline-variant/20 pb-8 mb-12">
+            <div><h3 class="font-headline text-3xl text-primary">Analysis Report</h3><p class="text-[10px] uppercase tracking-widest text-stone-500 mt-1">Sample — Illustration Only</p></div>
+            <span class="text-[10px] uppercase tracking-widest bg-error-container text-on-error-container px-3 py-1 font-bold">Action Required</span>
           </div>
-        </li>
-        <li>
-          <span class="item-icon">📊</span>
-          <div class="item-text">
-            <strong>Loan Estimate comparison</strong>
-            <span>Side-by-side delta showing exactly which fees changed from your original LE and by how much.</span>
+          <div class="space-y-12">
+            <div class="flex flex-col md:flex-row justify-between gap-6"><div class="space-y-2"><h4 class="font-headline text-xl text-primary">Underwriting Fee</h4><p class="text-sm text-on-surface-variant font-light max-w-sm">LE listed this at $845. Lender origination charges cannot increase under TRID. This $450 increase exceeds the zero-tolerance threshold.</p></div><div class="flex flex-col items-end gap-2 shrink-0"><span class="font-headline text-2xl">$1,295</span><span class="text-[10px] font-bold uppercase tracking-widest bg-error-container text-on-error-container px-3 py-1">Junk Fee</span></div></div>
+            <div class="flex flex-col md:flex-row justify-between gap-6"><div class="space-y-2"><h4 class="font-headline text-xl text-primary">Document Preparation Fee</h4><p class="text-sm text-on-surface-variant font-light max-w-sm">Does not correspond to a clearly defined service. CFPB guidance identifies "document preparation" as a common junk fee category.</p></div><div class="flex flex-col items-end gap-2 shrink-0"><span class="font-headline text-2xl">$295</span><span class="text-[10px] font-bold uppercase tracking-widest bg-[#FEF0C4] text-[#8A6500] px-3 py-1">Review</span></div></div>
+            <div class="flex flex-col md:flex-row justify-between gap-6"><div class="space-y-2"><h4 class="font-headline text-xl text-primary">Appraisal Fee</h4><p class="text-sm text-on-surface-variant font-light max-w-sm">LE listed at $525. A $25 increase is 4.8% — within the allowable 10% tolerance limit for this category.</p></div><div class="flex flex-col items-end gap-2 shrink-0"><span class="font-headline text-2xl">$550</span><span class="text-[10px] font-bold uppercase tracking-widest bg-primary-fixed text-on-primary-fixed-variant px-3 py-1">Verified</span></div></div>
           </div>
-        </li>
-        <li>
-          <span class="item-icon">📝</span>
-          <div class="item-text">
-            <strong>Talking points for your lender</strong>
-            <span>Specific, professional language you can use to question flagged fees before your closing date.</span>
-          </div>
-        </li>
-        <li>
-          <span class="item-icon">✅</span>
-          <div class="item-text">
-            <strong>Summary scorecard</strong>
-            <span>Estimated range of recoverable overcharges and priority action items ranked by impact.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <div class="sample-report">
-        <div class="sample-header">
-          <span>Sample report excerpt</span>
-          <span class="report-badge">Illustration only</span>
-        </div>
-        <div class="sample-body">
-          <div class="sample-finding finding-red">
-            <div class="finding-label label-red">🚩 Flagged — TRID Tolerance Issue</div>
-            <div class="finding-text"><strong>Underwriting Fee: $1,295</strong><br/>Your Loan Estimate listed this fee at $845. Under TRID rules, lender origination charges cannot increase from the Loan Estimate to the Closing Disclosure. This $450 increase appears to exceed the zero-tolerance threshold. Best practice suggests requesting a written explanation from your lender before closing.</div>
-            <div class="finding-amount" style="color: var(--red-flag);">$450 potential overcharge</div>
-          </div>
-          <div class="sample-finding finding-yellow">
-            <div class="finding-label label-yellow">⚠️ Review Recommended</div>
-            <div class="finding-text"><strong>Document Preparation Fee: $295</strong><br/>This fee does not correspond to a clearly defined service. CFPB guidance indicates "document preparation" is often cited as a junk fee category. Your lender should be able to provide specific justification if asked.</div>
-          </div>
-          <div class="sample-finding finding-green">
-            <div class="finding-label label-green">✓ Appears Within Tolerance</div>
-            <div class="finding-text"><strong>Appraisal Fee: $550</strong><br/>This fee was disclosed on your Loan Estimate at $525. Appraisal fees fall in the 10% tolerance category. A $25 increase represents a 4.8% change — within the allowable limit.</div>
+          <div class="mt-20 pt-12 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-sm italic font-headline text-stone-500">Estimated potential savings: <span class="text-primary font-bold not-italic">$1,700–$2,400</span></p>
+            <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="text-tertiary font-label text-sm uppercase tracking-[0.2em] font-bold border-b-2 border-tertiary-fixed-dim pb-1 hover:text-primary transition-colors">Get My Analysis →</a>
           </div>
         </div>
       </div>
@@ -946,93 +124,79 @@
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing-section">
-  <p class="section-label">Pricing</p>
-  <h2 class="section-title" style="margin-bottom:12px;">One analysis. One price.</h2>
-  <p class="section-sub" style="margin: 0 auto 40px; text-align:center;">No subscription. No follow-up fees. You're buying a home, not another monthly charge.</p>
-  <div class="pricing-card">
-    <div class="pricing-eyebrow">Complete Closing Disclosure Analysis</div>
-    <div class="pricing-amount"><sup>$</sup>197</div>
-    <div class="pricing-note">One-time payment · No recurring charges</div>
-    <div class="pricing-includes">
-      <div class="pricing-include">Full line-by-line fee analysis</div>
-      <div class="pricing-include">TRID tolerance violation check</div>
-      <div class="pricing-include">Loan Estimate comparison</div>
-      <div class="pricing-include">Junk fee identification</div>
-      <div class="pricing-include">Title insurance review</div>
-      <div class="pricing-include">Property tax proration check</div>
-      <div class="pricing-include">Lender credit verification</div>
-      <div class="pricing-include">Lender talking-point script</div>
-      <div class="pricing-include">Priority action scorecard</div>
-      <div class="pricing-include">Delivered by email within minutes</div>
-    </div>
-    <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="btn-gold">Get My Analysis Now →</a>
-    <div class="pricing-footer">
-      <span>🔒 Secure payment via Stripe</span>
-      <span>📧 Results delivered by email</span>
-      <span>📄 Works with any CD format</span>
+<section id="how-it-works" class="py-32 bg-surface-container-low">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="mb-20"><h2 class="font-headline text-5xl text-primary mb-4">A simple path to certainty.</h2><div class="h-1 w-24 bg-tertiary-fixed-dim"></div></div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24">
+      <div class="space-y-6"><div class="w-16 h-16 flex items-center justify-center bg-surface-container-high rounded-sm"><span class="material-symbols-outlined text-primary text-3xl">payments</span></div><h3 class="font-headline text-2xl text-primary">Pay &amp; Upload</h3><p class="text-on-surface-variant leading-relaxed font-light">Complete your $197 payment and upload your Closing Disclosure PDF on the secure intake form.</p></div>
+      <div class="space-y-6"><div class="w-16 h-16 flex items-center justify-center bg-surface-container-high rounded-sm"><span class="material-symbols-outlined text-primary text-3xl">clinical_notes</span></div><h3 class="font-headline text-2xl text-primary">AI Analysis</h3><p class="text-on-surface-variant leading-relaxed font-light">Our system applies federal TRID rules to every line of your document — flagging discrepancies and potential overcharges.</p></div>
+      <div class="space-y-6"><div class="w-16 h-16 flex items-center justify-center bg-surface-container-high rounded-sm"><span class="material-symbols-outlined text-primary text-3xl">assignment_turned_in</span></div><h3 class="font-headline text-2xl text-primary">Report Delivered</h3><p class="text-on-surface-variant leading-relaxed font-light">A plain-English report lands in your inbox in minutes — flagged fees highlighted, lender talking points included.</p></div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq-section">
-  <div class="faq-inner">
-    <p class="section-label">Common questions</p>
-    <h2 class="section-title" style="margin-bottom:40px;">What buyers ask us.</h2>
-
-    <div class="faq-item">
-      <div class="faq-q">What is a Closing Disclosure?</div>
-      <div class="faq-a">A Closing Disclosure (CD) is the federally required 5-page document your lender must provide at least 3 business days before your closing. It contains every fee, charge, and credit associated with your mortgage — and it's legally binding. Under TRID (the TILA-RESPA Integrated Disclosure rule), certain fees cannot change from your Loan Estimate without your consent or a valid change of circumstance.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">How quickly will I receive my analysis?</div>
-      <div class="faq-a">Most reports are delivered to your inbox within minutes of uploading your document. Your 3-day review window is short — we built this system to work fast.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">What format does my document need to be in?</div>
-      <div class="faq-a">A standard PDF is preferred. Almost all Closing Disclosures are issued as PDFs by lenders. If yours was sent as a scanned image, the analysis may be less precise but will still work for most documents.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Do I need to include my Loan Estimate too?</div>
-      <div class="faq-a">No — but if you have it, there is a notes field in the intake form where you can include key figures from your LE. Our analysis will reference TRID tolerance rules even without the original LE, and flag fees that commonly exceed tolerances or market norms.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Is this legal advice?</div>
-      <div class="faq-a">No. Closing Disclosure Clarity provides general educational analysis of your closing document — not legal advice, not financial advice, and not a substitute for consultation with a qualified real estate attorney. If a fee appears problematic, we provide plain-English context and suggested questions for your lender, not legal directives.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Is my document secure?</div>
-      <div class="faq-a">Your document is transmitted securely via encrypted upload and is used solely to generate your analysis. We do not store, share, or sell your personal financial documents.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">What if my lender says everything is fine?</div>
-      <div class="faq-a">Lenders are not always wrong — and not every flagged item is an error. Our analysis gives you the vocabulary and context to ask informed questions. Many buyers successfully negotiate or correct fees simply by knowing which ones to ask about. Whether you act on the report is entirely your decision.</div>
+<section class="py-32 bg-surface">
+  <div class="max-w-3xl mx-auto px-6 md:px-12 text-center">
+    <h2 class="font-headline text-5xl text-primary mb-4">One analysis. One price.</h2>
+    <p class="text-on-surface-variant font-light mb-16">No subscription. No follow-up fees. You're buying a home, not another monthly charge.</p>
+    <div class="bg-surface-container-lowest border border-outline-variant/10 editorial-shadow p-12 text-left">
+      <div class="flex flex-col sm:flex-row justify-between items-start gap-6 mb-10 pb-10 border-b border-outline-variant/20">
+        <div><h3 class="font-headline text-3xl text-primary">Complete Closing Disclosure Analysis</h3><p class="text-on-surface-variant text-sm mt-2 font-light">One-time payment · No recurring charges</p></div>
+        <span class="font-headline italic text-5xl text-primary shrink-0">$197</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm text-on-surface">Full line-by-line fee analysis</span></div>
+        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm text-on-surface">TRID tolerance violation check</span></div>
+        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm text-on-surface">Loan Estimate comparison</span></div>
+        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm text-on-surface">Junk fee identification</span></div>
+        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm text-on-surface">Title insurance review</span></div>
+        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm text-on-surface">Lender talking-point script</span></div>
+        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm text-on-surface">Priority action scorecard</span></div>
+        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-tertiary-fixed-dim text-base" style="font-variation-settings:'FILL' 1">check_circle</span><span class="text-sm text-on-surface">Delivered by email in minutes</span></div>
+      </div>
+      <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="cta-gradient text-on-primary px-10 py-5 text-base font-medium rounded-sm block text-center hover:opacity-90 transition-opacity">Get My Analysis Now →</a>
+      <p class="text-center text-[10px] uppercase tracking-widest text-stone-400 mt-4">🔒 Stripe · 📧 Email delivery · 📄 Any CD format</p>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">Closing Disclosure <span>Clarity</span></div>
-    <p style="font-size:0.82rem; color:rgba(255,255,255,0.45); margin-bottom:8px;">AI-powered analysis for homebuyers navigating the closing process.</p>
-    <div class="footer-disclaimer">
-      <strong style="color:rgba(255,255,255,0.5);">Educational Use Only — Not Legal or Financial Advice.</strong> Closing Disclosure Clarity provides general educational analysis of closing documents for informational purposes only. Our reports are not legal advice, are not financial advice, and are not a substitute for consultation with a qualified real estate attorney, mortgage professional, or financial advisor. Analysis is based on publicly available federal TRID guidelines and general market data. Findings are framed as educational observations and should not be interpreted as legal conclusions or claims of regulatory violations. Always consult a licensed professional before making decisions based on this analysis.
+<section class="py-32 bg-surface-container-low">
+  <div class="max-w-3xl mx-auto px-6 md:px-12">
+    <h2 class="font-headline text-4xl text-primary mb-16">Common questions.</h2>
+    <div class="divide-y divide-outline-variant/20">
+      <details class="group py-8"><summary class="font-headline text-xl text-primary cursor-pointer list-none flex justify-between items-center">What is a Closing Disclosure?<span class="material-symbols-outlined text-tertiary-fixed-dim group-open:rotate-180 transition-transform">expand_more</span></summary><p class="mt-4 text-on-surface-variant font-light leading-relaxed text-sm">A Closing Disclosure is the federally required 5-page document your lender must provide at least 3 business days before closing. It contains every fee, charge, and credit associated with your mortgage — and it's legally binding.</p></details>
+      <details class="group py-8"><summary class="font-headline text-xl text-primary cursor-pointer list-none flex justify-between items-center">How quickly will I receive my analysis?<span class="material-symbols-outlined text-tertiary-fixed-dim group-open:rotate-180 transition-transform">expand_more</span></summary><p class="mt-4 text-on-surface-variant font-light leading-relaxed text-sm">Most reports are delivered to your inbox within minutes of uploading your document. Your 3-day review window is short — we built this system to work fast.</p></details>
+      <details class="group py-8"><summary class="font-headline text-xl text-primary cursor-pointer list-none flex justify-between items-center">Is this legal advice?<span class="material-symbols-outlined text-tertiary-fixed-dim group-open:rotate-180 transition-transform">expand_more</span></summary><p class="mt-4 text-on-surface-variant font-light leading-relaxed text-sm">No. Closing Disclosure Clarity provides general educational analysis — not legal advice, not financial advice. If a fee appears problematic, we provide plain-English context and suggested questions for your lender.</p></details>
+      <details class="group py-8"><summary class="font-headline text-xl text-primary cursor-pointer list-none flex justify-between items-center">Is my document secure?<span class="material-symbols-outlined text-tertiary-fixed-dim group-open:rotate-180 transition-transform">expand_more</span></summary><p class="mt-4 text-on-surface-variant font-light leading-relaxed text-sm">Your document is transmitted securely via encrypted upload and used solely to generate your analysis. We do not store, share, or sell your personal financial documents.</p></details>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 Closing Disclosure Clarity. All rights reserved.</span>
-      <span>closingdisclosurecla​rity.com</span>
+  </div>
+</section>
+
+<section class="py-32 px-6">
+  <div class="max-w-5xl mx-auto bg-primary py-24 px-12 md:px-24 text-center relative overflow-hidden rounded-sm">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary-container/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+    <div class="relative z-10 space-y-12">
+      <h2 class="font-headline text-5xl md:text-6xl text-on-primary tracking-tight">Don't sign until you have Clarity.</h2>
+      <p class="text-primary-fixed opacity-80 text-lg max-w-2xl mx-auto font-light">A home is the largest purchase you will ever make. Ensure every dollar in your closing costs is legitimate and compliant.</p>
+      <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="bg-surface text-primary px-12 py-5 text-lg font-bold rounded-sm inline-block hover:bg-tertiary-fixed-dim transition-colors uppercase tracking-widest">Secure My Analysis</a>
     </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-[#f5f3ef] w-full py-24 px-12 border-t border-outline-variant/10">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+    <div class="space-y-4">
+      <a href="/" class="font-headline italic text-3xl text-primary block">Closing Disclosure Clarity</a>
+      <p class="font-body text-sm tracking-wide text-stone-500">AI-powered analysis for homebuyers navigating the closing process.</p>
+      <p class="font-body text-xs text-stone-400 max-w-md leading-relaxed"><strong class="text-stone-500">Educational Use Only — Not Legal or Financial Advice.</strong> Analysis is based on publicly available federal TRID guidelines. Always consult a licensed professional before making decisions.</p>
+    </div>
+    <nav class="flex flex-wrap gap-8">
+      <a href="/blog/" class="text-stone-400 hover:text-primary transition-all font-body text-sm tracking-wide">Guides</a>
+      <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="text-stone-400 hover:text-primary transition-all font-body text-sm tracking-wide">Get Analysis</a>
+    </nav>
   </div>
 </footer>
-
 </body>
 </html>
