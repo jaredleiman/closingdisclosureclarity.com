@@ -9,187 +9,215 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 <script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          headline: ['"Noto Serif"', 'serif'],
-          body: ['"Noto Sans"', 'sans-serif'],
-          label: ['"Noto Sans"', 'sans-serif'],
-        },
-        colors: {
-          primary: '#1a2e1a',
-          'on-primary': '#ffffff',
-          'primary-container': '#c8e6c9',
-          'on-primary-container': '#002200',
-          'primary-fixed': '#c8e6c9',
-          'primary-fixed-dim': '#a5d6a7',
-          'on-primary-fixed': '#002200',
-          'on-primary-fixed-variant': '#1b5e20',
-          secondary: '#52634f',
-          'on-secondary': '#ffffff',
-          'secondary-container': '#d5e8d0',
-          'on-secondary-container': '#101f0f',
-          tertiary: '#38656a',
-          'on-tertiary': '#ffffff',
-          'tertiary-container': '#bcebf0',
-          'on-tertiary-container': '#002023',
-          'tertiary-fixed': '#bcebf0',
-          'tertiary-fixed-dim': '#a0cfd4',
-          'on-tertiary-fixed': '#002023',
-          'on-tertiary-fixed-variant': '#1f4d52',
-          error: '#ba1a1a',
-          'on-error': '#ffffff',
-          'error-container': '#ffdad6',
-          'on-error-container': '#410002',
-          surface: '#f8f5f0',
-          'on-surface': '#1a1c18',
-          'surface-variant': '#dde5da',
-          'on-surface-variant': '#414941',
-          'surface-container-lowest': '#ffffff',
-          'surface-container-low': '#f2efe9',
-          'surface-container': '#ece9e3',
-          'surface-container-high': '#e6e4de',
-          'surface-container-highest': '#e1ded8',
-          outline: '#717970',
-          'outline-variant': '#c1c9be',
-          'inverse-surface': '#2f312d',
-          'inverse-on-surface': '#f0f2ec',
-          'inverse-primary': '#8bc88e',
-          shadow: '#000000',
-          scrim: '#000000',
-        }
-      }
-    }
-  }
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+headline: ['"Noto Serif"', 'serif'],
+body: ['"Noto Sans"', 'sans-serif'],
+label: ['"Noto Sans"', 'sans-serif'],
+},
+colors: {
+primary: '#1a2e1a',
+'on-primary': '#ffffff',
+'primary-container': '#c8e6c9',
+'on-primary-container': '#002200',
+'primary-fixed': '#c8e6c9',
+'primary-fixed-dim': '#a5d6a7',
+'on-primary-fixed': '#002200',
+'on-primary-fixed-variant': '#1b5e20',
+secondary: '#52634f',
+'on-secondary': '#ffffff',
+'secondary-container': '#d5e8d0',
+'on-secondary-container': '#101f0f',
+tertiary: '#38656a',
+'on-tertiary': '#ffffff',
+'tertiary-container': '#bcebf0',
+'on-tertiary-container': '#002023',
+'tertiary-fixed': '#bcebf0',
+'tertiary-fixed-dim': '#a0cfd4',
+'on-tertiary-fixed': '#002023',
+'on-tertiary-fixed-variant': '#1f4d52',
+error: '#ba1a1a',
+'on-error': '#ffffff',
+'error-container': '#ffdad6',
+'on-error-container': '#410002',
+surface: '#f8f5f0',
+'on-surface': '#1a1c18',
+'surface-variant': '#dde5da',
+'on-surface-variant': '#414941',
+'surface-container-lowest': '#ffffff',
+'surface-container-low': '#f2efe9',
+'surface-container': '#ece9e3',
+'surface-container-high': '#e6e4de',
+'surface-container-highest': '#e1ded8',
+outline: '#717970',
+'outline-variant': '#c1c9be',
+'inverse-surface': '#2f312d',
+'inverse-on-surface': '#f0f2ec',
+'inverse-primary': '#8bc88e',
+shadow: '#000000',
+scrim: '#000000',
+}
+}
+}
+}
 </script>
 <style>
-  body { font-family: 'Noto Sans', sans-serif; background-color: #f8f5f0; }
-  .cta-gradient { background: linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 100%); }
-  .editorial-shadow { box-shadow: 4px 4px 0px rgba(26,46,26,0.08); }
+body { font-family: 'Noto Sans', sans-serif; background-color: #f8f5f0; }
+.cta-gradient { background: linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 100%); }
+.editorial-shadow { box-shadow: 4px 4px 0px rgba(26,46,26,0.08); }
 </style>
 </head>
 <body class="bg-surface text-on-surface">
 
 <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-[#fbf9f5]/80 backdrop-blur-md shadow-sm shadow-black/5">
-  <a href="/" class="font-headline italic font-bold text-xl md:text-2xl text-primary">Closing Disclosure Clarity</a>
-  <nav class="hidden md:flex items-center space-x-10">
-    <a href="/#how-it-works" class="text-on-surface-variant font-label uppercase tracking-widest text-xs hover:text-primary transition-colors">How It Works</a>
-    <a href="/#what-we-check" class="text-on-surface-variant font-label uppercase tracking-widest text-xs hover:text-primary transition-colors">What We Check</a>
-    <a href="/blog/" class="text-primary font-label uppercase tracking-widest text-xs">Guides</a>
-  </nav>
-  <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="cta-gradient text-on-primary px-6 py-2.5 text-sm font-medium tracking-wide rounded-sm hover:opacity-90 transition-opacity">Analyze My Disclosure</a>
+<a href="/" class="font-headline italic font-bold text-xl md:text-2xl text-primary">Closing Disclosure Clarity</a>
+<nav class="hidden md:flex items-center space-x-10">
+<a href="/#how-it-works" class="text-on-surface-variant font-label uppercase tracking-widest text-xs hover:text-primary transition-colors">How It Works</a>
+<a href="/#what-we-check" class="text-on-surface-variant font-label uppercase tracking-widest text-xs hover:text-primary transition-colors">What We Check</a>
+<a href="/blog/" class="text-primary font-label uppercase tracking-widest text-xs">Guides</a>
+</nav>
+<a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="cta-gradient text-on-primary px-6 py-2.5 text-sm font-medium tracking-wide rounded-sm hover:opacity-90 transition-opacity">Analyze My Disclosure</a>
 </header>
 
 <main class="pt-24">
-  <section class="py-20 px-6 md:px-12 bg-surface">
-    <div class="max-w-5xl mx-auto">
-      <div class="mb-16">
-        <h1 class="font-headline text-5xl md:text-6xl text-primary mb-4">Closing Disclosure Guides</h1>
-        <p class="text-on-surface-variant font-light text-lg max-w-2xl">Plain-English guides to understanding every aspect of your Closing Disclosure before you sign.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/what-is-a-closing-disclosure/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">What Is a Closing Disclosure?</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">A plain-English guide to what the Closing Disclosure is, what it contains, and why it matters before you sign.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/closing-disclosure-3-day-rule/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">The Closing Disclosure 3-Day Rule</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">Federal law requires your lender to deliver your Closing Disclosure at least three business days before closing. Here is what that means for your timeline.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/closing-disclosure-example/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Closing Disclosure Example: How to Read Every Section</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">A line-by-line walkthrough of a sample Closing Disclosure, showing exactly what each section means and what to look for.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/closing-disclosure-form/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Closing Disclosure Form: How to Download, Read, and Use It</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">Everything you need to know about CFPB Form H-25, including how to get it, how to read it, and how to compare it to your Loan Estimate.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/closing-disclosure-timeline/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Closing Disclosure Timeline: From Application to Signing</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">A step-by-step breakdown of when you get your Closing Disclosure and what happens during the three-day review window.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/closing-disclosure-vs-loan-estimate/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Closing Disclosure vs. Loan Estimate: What Changed and Why It Matters</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">How to compare your Closing Disclosure to your Loan Estimate side by side, and what fee changes are legally allowed.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/closing-statement-real-estate/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">What Is a Closing Statement in Real Estate?</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">The difference between a closing statement and a Closing Disclosure, and what each document covers in a real estate transaction.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/does-closing-disclosure-mean-loan-approved/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Does a Closing Disclosure Mean Your Loan Is Approved?</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">Receiving a Closing Disclosure signals your loan is nearly final, but here is what it actually means and what can still change.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/lenders-title-insurance-fee/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Lender's Title Insurance Fee: What It Is and What's Typical</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">What the lender title insurance fee covers, how much it typically costs, and whether you can negotiate it on your Closing Disclosure.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/what-is-underwriting-fee/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">What Is an Underwriting Fee — and Can You Negotiate It?</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">A clear explanation of the underwriting fee on your Closing Disclosure, what it covers, and how to push back if it looks inflated.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/errors-on-closing-disclosure/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Errors on Your Closing Disclosure: What to Do When Numbers Don't Match</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">Found an error on your Closing Disclosure? Here is exactly what to do, which mistakes can be fixed without delay, and how to push back on your lender.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-  <article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
-    <a href="/blog/closing-disclosure-tolerance-rules/" class="block">
-      <h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Closing Disclosure Tolerance Rules: What Can and Can't Change at Closing</h2>
-      <p class="text-on-surface-variant font-light text-sm leading-relaxed">A plain-English breakdown of the TRID tolerance rules, which fees can legally increase between your Loan Estimate and Closing Disclosure, and when you are owed a refund.</p>
-      <span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
-    </a>
-  </article>
-      </div>
-    </div>
-  </section>
+<section class="py-20 px-6 md:px-12 bg-surface">
+<div class="max-w-5xl mx-auto">
+<div class="mb-16">
+<h1 class="font-headline text-5xl md:text-6xl text-primary mb-4">Closing Disclosure Guides</h1>
+<p class="text-on-surface-variant font-light text-lg max-w-2xl">Plain-English guides to understanding every aspect of your Closing Disclosure before you sign.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/closing-disclosure-example-walkthrough/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Closing Disclosure Example: A Real Walkthrough with Numbers</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">A line-by-line walkthrough of a sample closing disclosure for a $350,000 home purchase. See exactly what each fee looks like in dollars, what is typical, and what to question.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/initial-closing-disclosure/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Initial Closing Disclosure: What It Is, When You Get It, and What to Check First</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">Your initial closing disclosure is the first complete picture of your loan terms and closing costs. Here is what to verify within the first hour of receiving it.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/closing-disclosure-timeline/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Closing Disclosure Timeline: What Happens When, From Loan Estimate to Closing Day</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">Your closing disclosure follows a strict federal timeline. Here is exactly what triggers each step, what can delay your closing, and how to keep your purchase on schedule.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/final-closing-disclosure-vs-initial/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Final Closing Disclosure vs Initial: What Changed and Why It Matters</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">You receive an initial closing disclosure, then sometimes a revised one. Here is what is allowed to change, what is not, and how to spot a fee that should not have moved.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/how-to-read-a-closing-disclosure/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">How to Read a Closing Disclosure: A Page-by-Page Guide for Homebuyers</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">Five pages, dozens of line items, three business days to review. This plain-English walkthrough shows you what each page means and where errors hide.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/what-is-a-closing-disclosure/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">What Is a Closing Disclosure?</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">A plain-English guide to what the Closing Disclosure is, what it contains, and why it matters before you sign.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/closing-disclosure-3-day-rule/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">The Closing Disclosure 3-Day Rule</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">Federal law requires your lender to deliver your Closing Disclosure at least three business days before closing. Here is what that means for your timeline.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/closing-disclosure-example/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Closing Disclosure Example: How to Read Every Section</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">A line-by-line walkthrough of a sample Closing Disclosure, showing exactly what each section means and what to look for.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/closing-disclosure-form/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Closing Disclosure Form: How to Download, Read, and Use It</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">Everything you need to know about CFPB Form H-25, including how to get it, how to read it, and how to compare it to your Loan Estimate.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/closing-disclosure-vs-loan-estimate/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Closing Disclosure vs. Loan Estimate: What Changed and Why It Matters</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">How to compare your Closing Disclosure to your Loan Estimate side by side, and what fee changes are legally allowed.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/closing-statement-real-estate/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">What Is a Closing Statement in Real Estate?</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">The difference between a closing statement and a Closing Disclosure, and what each document covers in a real estate transaction.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/does-closing-disclosure-mean-loan-approved/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Does a Closing Disclosure Mean Your Loan Is Approved?</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">Receiving a Closing Disclosure signals your loan is nearly final, but here is what it actually means and what can still change.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/lenders-title-insurance-fee/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Lender's Title Insurance Fee: What It Is and What's Typical</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">What the lender title insurance fee covers, how much it typically costs, and whether you can negotiate it on your Closing Disclosure.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/what-is-underwriting-fee/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">What Is an Underwriting Fee &mdash; and Can You Negotiate It?</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">A clear explanation of the underwriting fee on your Closing Disclosure, what it covers, and how to push back if it looks inflated.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/errors-on-closing-disclosure/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Errors on Your Closing Disclosure: What to Do When Numbers Don't Match</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">Found an error on your Closing Disclosure? Here is exactly what to do, which mistakes can be fixed without delay, and how to push back on your lender.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+<article class="bg-surface-container-lowest border border-outline-variant/10 p-8 hover:border-primary/30 transition-colors group">
+<a href="/blog/closing-disclosure-tolerance-rules/" class="block">
+<h2 class="font-headline text-xl text-primary mb-3 group-hover:text-primary/80 transition-colors leading-snug">Closing Disclosure Tolerance Rules: What Can and Can't Change at Closing</h2>
+<p class="text-on-surface-variant font-light text-sm leading-relaxed">A plain-English breakdown of the TRID tolerance rules, which fees can legally increase between your Loan Estimate and Closing Disclosure, and when you are owed a refund.</p>
+<span class="inline-block mt-4 text-xs font-label uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">Read Guide &rarr;</span>
+</a>
+</article>
+</div>
+</div>
+</section>
 </main>
 
 <footer class="bg-[#f5f3ef] w-full py-24 px-12 border-t border-outline-variant/10">
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-    <div class="space-y-4">
-      <a href="/" class="font-headline italic text-3xl text-primary block">Closing Disclosure Clarity</a>
-      <p class="font-body text-sm tracking-wide text-stone-500">AI-powered analysis for homebuyers navigating the closing process.</p>
-      <p class="font-body text-xs text-stone-400 max-w-md leading-relaxed"><strong class="text-stone-500">Educational Use Only &mdash; Not Legal or Financial Advice.</strong> Analysis is based on publicly available federal TRID guidelines. Always consult a licensed professional before making decisions.</p>
-    </div>
-    <nav class="flex flex-wrap gap-8">
-      <a href="/blog/" class="text-stone-400 hover:text-primary transition-all font-body text-sm tracking-wide">Guides</a>
-      <a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="text-stone-400 hover:text-primary transition-all font-body text-sm tracking-wide">Get Analysis</a>
-    </nav>
-  </div>
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+<div class="space-y-4">
+<a href="/" class="font-headline italic text-3xl text-primary block">Closing Disclosure Clarity</a>
+<p class="font-body text-sm tracking-wide text-stone-500">AI-powered analysis for homebuyers navigating the closing process.</p>
+<p class="font-body text-xs text-stone-400 max-w-md leading-relaxed"><strong class="text-stone-500">Educational Use Only &mdash; Not Legal or Financial Advice.</strong> Analysis is based on publicly available federal TRID guidelines. Always consult a licensed professional before making decisions.</p>
+</div>
+<nav class="flex flex-wrap gap-8">
+<a href="/blog/" class="text-stone-400 hover:text-primary transition-all font-body text-sm tracking-wide">Guides</a>
+<a href="https://buy.stripe.com/00w3cvelL0Th2UafALeIw0n" class="text-stone-400 hover:text-primary transition-all font-body text-sm tracking-wide">Get Analysis</a>
+</nav>
+</div>
 </footer>
 </body>
 </html>
